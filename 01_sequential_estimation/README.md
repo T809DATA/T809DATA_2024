@@ -107,8 +107,8 @@ Files to turn in:
 
 - `template.py`: This is your code
 - `2_1.txt`
+- `4_1.png`
 - `5_1.png`
-- `6_1.png`
 
 Make sure the file names are exact.
 Submission that do not pass the first two tests in Gradescope will not be graded.
