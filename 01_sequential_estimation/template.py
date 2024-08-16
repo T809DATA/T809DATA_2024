@@ -7,7 +7,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from tools import scatter_3d_data, bar_per_axis
+from tools import scatter_2d_data, bar_per_axis
 
 
 def gen_data(
