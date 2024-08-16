@@ -37,7 +37,7 @@ Example inputs and outputs (these examples use `np.random.seed(1234)`):
 
 Lets create some data $X$. Create 300 2-dimensional data points sampled from $N_2([-1, 2], \sqrt{4})$
 
-You can visualize your data using `tools.scatter_3d_data` to get a plot similar to the following
+You can visualize your data using `tools.scatter_2d_data` to get a plot similar to the following
 
 ![Simple Scatter](images/simple_scatter_2d.png)
 
@@ -76,15 +76,15 @@ For a different set of points this plot looks like the following:
 
 ![Rolling estimate](./images/rolling_estimate_2d.png)
 
-Turn in your plot as `5_1.png`
+Turn in your plot as `4_1.png`
 
 ### Section 5
 Let's now plot the squared error between the estimate and the actual mean after every update.
 
 The squared error between e.g. a ground truth $y$ and a prediction $\hat{y}$ is $(y-\hat{y})^2$.
 
-Of course our data will be 3-dimensional so after calculating the squared error you will have a 3-dimensional error. 
-Take the mean of those three values to get the average error across all three dimensions and plot those values.
+Of course our data will be 2-dimensional so after calculating the squared error you will have a 2-dimensional error. 
+Take the mean of those two values to get the average error across all dimensions and plot those values.
 
 You can use `_plot_square_error` and `_square_error` for this.
 
@@ -92,7 +92,7 @@ For a different distribution this plot looks like the following:
 
 ![Rolling error](./images/rolling_error.png)
 
-Turn in your plot as `6_1.png`
+Turn in your plot as `5_1.png`
 
 ### What to turn in to Gradescope
 *Read this carefully before you submit your solution.*
