@@ -141,3 +141,21 @@ For a different mixture, the plot looks like this after 100 draws:
 
 Save this plot as `3_2_1.png`
 
+### What to turn in to Gradescope
+*Read this carefully before you submit your solution.*
+
+You should edit `template.py` to include your own code.
+ 
+This is an individual project, you can of course help each other out but your code should be your own.
+
+You can use built-in python modules as you wish, however you are not allowed to install and import packages than are not already imported.
+
+Files to turn in:
+
+- `template.py`: This is your code
+- `1_2_1.txt`
+- `2_2_1.txt`
+- `3_2_1.txt`
+
+Make sure the file names are exact. 
+Submission that do not pass the first two tests in Gradescope will not be graded.
