@@ -21,7 +21,7 @@ Example inputs and outputs:
 `([-1.2790590441258425, 2.3165715702351934, -2.2246392609108434], [0, 1, 2], [0, 1, 2])`
 
 Use this function to create a dataset with a total of 50 samples from two normal distributions: $N(-1, \sqrt{5})$ and $N(1, \sqrt{5})$.
-Then create a train and test set using and `split_train_test` from `tools.py` with 80% train and 20% test split.
+Then create a train and test set using `split_train_test` from `tools.py` with 80% train and 20% test split.
 
 ```
 (train_features, train_targets), (test_features, test_targets)\
@@ -102,11 +102,12 @@ likelihoods = maximum_likelihood(train_features, train_targets, test_features, c
 **Answer this question in a raw text file and submit it as 8_1.txt**
 
 Create a new dataset with 50 datapoints and $N(-4, \sqrt{2})$ and $N(4, \sqrt{2})$.
-Compare the accuracy of both datasets, are the results different?
+
+(Question A) Compare the accuracy of both datasets, if the results are different, what explains the difference?
 
 Play around with the number of datapoints, the mean and standard deviation of the normal distributions.
 
-What happens when you change the: 
+(Question B) What happens when you change the: 
 1. number of datapoints
 2. mean of the normal distributions
 3. standard deviation of the normal distributions
