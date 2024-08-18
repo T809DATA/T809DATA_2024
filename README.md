@@ -7,6 +7,7 @@ This repository contains exercises and supporting code for the course T-809-DATA
 The repository contains the following modules:
 * Assignment 0: [Introduction](00_introduction/README.md)
 * Assignment 1: [Sequential Estimation](01_sequential_estimation/README.md)
+* Assignment 2: [Classification](02_classification/README.md)
 
 
 We will add modules gradually throughout the course.
