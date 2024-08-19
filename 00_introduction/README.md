@@ -1,7 +1,7 @@
 # Introduction Assignment
 This is an introductory assignment for the course. By solving this assignment you will get more familiar with the tools we will be using in the course.
 
-**Solving this assignment is not a requirement but is helpful to get you started with the tools you need to be able to use during future assignments in this course.**
+**Solving this assignment is not a requirement and will not be a part of your final grade, but is helpful to get you started with the tools you need to be able to use during future assignments in this course.**
 
 ## Setting up
 Before starting, make sure that you have installed Python requirements as explained in the [main README](../README.md).
