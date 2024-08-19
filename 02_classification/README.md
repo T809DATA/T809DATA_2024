@@ -112,7 +112,7 @@ Play around with the number of datapoints, the mean and standard deviation of th
 2. mean of the normal distributions
 3. standard deviation of the normal distributions
 
-Explain in a few words how and why each of these effect the accuracy of your model.
+Explain in a few words how and why each of these affect the accuracy of your model.
 
 ### What to turn in to Gradescope
 *Read this carefully before you submit your solution.*
