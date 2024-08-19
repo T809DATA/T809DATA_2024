@@ -153,9 +153,9 @@ You can use built-in python modules as you wish, however you are not allowed to 
 Files to turn in:
 
 - `template.py`: This is your code
-- `1_2_1.txt`
-- `2_2_1.txt`
-- `3_2_1.txt`
+- `1_2_1.png`
+- `2_2_1.png`
+- `3_2_1.png`
 
 Make sure the file names are exact. 
 Submission that do not pass the first two tests in Gradescope will not be graded.
