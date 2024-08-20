@@ -2,10 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def normal(x: np.ndarray, sigma: float, mu: float) -> np.ndarray:
+def normal(x: np.ndarray, sigma: np.float64, mu: np.float64) -> np.ndarray:
     # Part 1.1
 
-def plot_normal(sigma: float, mu:float, x_start: float, x_end: float):
+def plot_normal(sigma: np.float64, mu:np.float64, x_start: np.float64, x_end: np.float64):
     # Part 1.2
 
 def _plot_three_normals():
