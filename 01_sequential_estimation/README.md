@@ -7,6 +7,15 @@ $$
 \mu_{ML}^{N} = \mu_{ML}^{N-1} + \frac{1}{N}(x_n - \mu_{ML}^{N-1})
 $$
 
+## Requirements
+
+You will need the following requirements to finish this requirement.
+
+- `numpy`: https://numpy.org/
+- `matplotlib`: https://matplotlib.org/
+
+You can run `pip install -r requirements.txt` to install all the requirements.
+
 ### Section 1
 Let's first create a data generator. Create a function `gen_data(n, k, mean, var)` which returns a $n\times k$ array, $X$. This $X$ contains a sequence of $n$ vectors of dimension $k$. Each vector $x_i$ in $X$ should be $x_i \sim N_k(\mu, \sigma^2I_k)$ where:
 

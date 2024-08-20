@@ -7,6 +7,16 @@ We will create a one dimensional dataset with two classes using overlapping Gaus
 
 *!!! We give you an example output for each function you will create. Since we are using randomly generated data you will not get the exact same results. !!!*
 
+## Requirements
+
+You will need the following requirements to finish this requirement.
+
+- `numpy`: https://numpy.org/
+- `matplotlib`: https://matplotlib.org/
+- `scikit-learn`: https://scikit-learn.org/stable/index.html
+
+You can run `pip install -r requirements.txt` to install all the requirements.
+
 ### Section 1
 
 Create a function `gen_data(n, locs, scales)` which returns `n` data points, their classes and a list of classes, using the `rvs` method of the `scipy.stats.norm` object, 

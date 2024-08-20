@@ -11,8 +11,15 @@ All your code should be turned in as a python script, i.e.
 * The file should contain all the functions with **exactly** the same function names as listed in the assignment description below
 * Use the supplied `template.py` file to fill in your code
 * Plots should be turned in as well. The naming convention for submitted plots is as follows: The Z-th plot under Part X.Y should be turned in as `X_Y_Z.png`
-* Store your plots in a seperate directory called `plots`
-* Turn these files in as a `.zip` file.
+
+## Requirements
+
+You will need the following requirements to finish this requirement.
+
+- `numpy`: https://numpy.org/
+- `matplotlib`: https://matplotlib.org/
+
+You can run `pip install -r requirements.txt` to install all the requirements.
 
 ## Part 1
 ### 1.1

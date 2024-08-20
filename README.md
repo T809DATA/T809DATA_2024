@@ -24,7 +24,8 @@ All the code in this repository is written in Python and **requires Python 3** (
 
 You can however use Python in any way you see fit and perhaps you may have all the requirements already installed system wide.
 
-Install Python requirements with `pip install -r requirements.txt`. You can of course install any additional python requirements using `pip`, just make sure you have your virtual environment activated when you do.
+Install Python requirements with `pip install -r requirements.txt`. You can find a `requirements.txt` file inside each assignment, make sure you install each one before starting the assignment.
+You do not have to create a new environment for each assignment but we will use additional requirements as we progress through the assignments.
 
 ## Using VS Code + Python (Optional)
 To get the best experience make sure that your VS Code workspace is using the correct Python interpreter. If you are using a virtual environment then the workspace setting `python.pythonPath` has to be set to `/path/to/venv/bin/python`. Normally VS Code takes care of doing this for you by recognizing that there is a virtual environment in the workspace. If not:
