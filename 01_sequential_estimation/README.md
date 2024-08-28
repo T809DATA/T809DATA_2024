@@ -17,11 +17,11 @@ You will need the following requirements to finish this requirement.
 You can run `pip install -r requirements.txt` to install all the requirements.
 
 ### Section 1
-Let's first create a data generator. Create a function `gen_data(n, k, mean, var)` which returns a $n\times k$ array, $X$. This $X$ contains a sequence of $n$ vectors of dimension $k$. Each vector $x_i$ in $X$ should be $x_i \sim N_k(\mu, \sigma^2I_k)$ where:
+Let's first create a data generator. Create a function `gen_data(n, k, mean, std)` which returns a $n\times k$ array, $X$. This $X$ contains a sequence of $n$ vectors of dimension $k$. Each vector $x_i$ in $X$ should be $x_i \sim N_k(\mu, \sigma^2I_k)$ where:
 
 * $N_k()$ is the [k-variate normal distribution](https://en.wikipedia.org/wiki/Multivariate_normal_distribution)
 * $\mu$ (or `mean`) is the mean vector of dimension $k$
-* $\sigma$ (or `var`) is the variance.
+* $\sigma$ (or `std`) is the standard deviation.
 * $I_k$ is the [identity matrix](https://en.wikipedia.org/wiki/Identity_matrix)
 
 You should use [`np.random.multivariate_normal`](https://docs.scipy.org/doc/numpy-1.14.0/reference/generated/numpy.random.multivariate_normal.html) for this.

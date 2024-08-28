@@ -14,7 +14,7 @@ def gen_data(
     n: int,
     k: int,
     mean: np.ndarray,
-    var: np.float64
+    std: np.float64
 ) -> np.ndarray:
     '''Generate n values samples from the k-variate
     normal distribution
@@ -62,7 +62,7 @@ def gen_changing_data(
     k: int,
     start_mean: np.ndarray,
     end_mean: np.ndarray,
-    var: np.float64
+    std: np.float64
 ) -> np.ndarray:
     # remove this if you don't go for the independent section
     pass
