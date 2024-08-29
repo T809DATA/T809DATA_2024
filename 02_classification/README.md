@@ -24,7 +24,7 @@ from each normal distributions shifted and scaled by the values in locs and scal
 Enumerate the classes numerically starting from 0.
 
 Example inputs and outputs:
-`features, targets, classes = load_data(2, [0, 2], [4, 4])` ->
+`features, targets, classes = gen_data(2, [0, 2], [4, 4])` ->
 `([-1.584389672570839, 0.8298584269140962, 1.5171962368458016, -8.269621052957255], [0, 0, 1, 1], [0, 1])`
 
 `gen_data(1, [-1, 0, 1], [2, 2, 2])` ->
