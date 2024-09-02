@@ -14,7 +14,7 @@ def load_regression_iris():
     * targets (np.ndarray): A [N,] array of target values
     '''
     iris = datasets.load_iris()
-    return torch.tensor(iris.data[:, 0:3]), torch.tensor(iris.data[:, 3])
+    return torch.tensor(iris.data[:, 0:3]).float(), torch.tensor(iris.data[:, 3]).float()
 
 
 def split_train_test(

@@ -55,28 +55,28 @@ We need to define how many basis functions we are going to use and determine the
 M, sigma = 10, 10
 mu = torch.zeros((M, D))
 for i in range(D):
-    mmin = torch.min(X[i, :])
-    mmax = torch.max(X[i, :])
+    mmin = torch.min(X[:, i])
+    mmax = torch.max(X[:, i])
     mu[:, i] = torch.linspace(mmin, mmax, M)
 fi = mvn_basis(X, mu, sigma)
 ```
 
 *Output*
 ```
-fi: tensor([[0.0008, 0.0010, 0.0012,  ..., 0.0014, 0.0012, 0.0011],
-        [0.0010, 0.0012, 0.0013,  ..., 0.0013, 0.0012, 0.0010],
-        [0.0010, 0.0012, 0.0014,  ..., 0.0013, 0.0012, 0.0010],
+fi: tensor([[0.0017, 0.0018, 0.0018,  ..., 0.0007, 0.0005, 0.0003],
+        [0.0019, 0.0019, 0.0019,  ..., 0.0006, 0.0004, 0.0003],
+        [0.0018, 0.0019, 0.0019,  ..., 0.0006, 0.0004, 0.0002],
         ...,
-        [0.0002, 0.0003, 0.0005,  ..., 0.0014, 0.0015, 0.0015],
-        [0.0002, 0.0003, 0.0005,  ..., 0.0015, 0.0016, 0.0016],
-        [0.0003, 0.0005, 0.0006,  ..., 0.0015, 0.0016, 0.0016]])
+        [0.0006, 0.0009, 0.0012,  ..., 0.0019, 0.0017, 0.0014],
+        [0.0006, 0.0008, 0.0011,  ..., 0.0019, 0.0017, 0.0015],
+        [0.0007, 0.0010, 0.0013,  ..., 0.0018, 0.0016, 0.0013]])
 ```
 
 ### Section 2
 
-Plot the output of each basis function, using the same parameters as above, as a function of the features. You should plot all the outputs onto the same plot. Turn in your plot as `plot_1_2_1.png`.
+Plot the output of each basis function, using the same parameters as above, as a function of the features. You should plot all the outputs onto the same plot. Turn in your plot as `2_1.png`.
 
-A single basis function output is shown below
+A single basis function output is shown below.
 
 ![Single basis function](images/single_basis.png)
 
@@ -93,8 +93,8 @@ wml = max_likelihood_linreg(fi, t, lamda)
 ```
 *Output*:
 ```
-wml: [  3.04661879   8.98364452  17.87352659  29.86144389  44.59162487
-  61.12887842  78.01047234  93.44289728 105.61212037 113.03406275]
+wml: tensor([  4.2790,  17.5758,  34.9175,  54.4687,  73.4915,  88.9635,  98.3602,
+        100.3262,  94.9887,  83.8179])
 ```
 
 ### Section 4
@@ -108,11 +108,15 @@ prediction = linear_model(X, mu, sigma, wml)
 ```
 *Output*:
 ```
-prediction = [0.72174704 0.71462572 0.72048698 0.75382486 0.73161981 0.7494642
- 0.7502493  0.74274217 0.73390818 0.73639504 0.71611075 0.77254612
- ...
- 0.77988157 0.60555882 0.61733184 0.62902646 0.75304099 0.57770296
- 0.61914859 0.64629346 0.67533913 0.67677248 0.72763469 0.76905279]
+prediction: tensor([0.6464, 0.6320, 0.6008, 0.6231, 0.6373, 0.7069, 0.6069, 0.6575, 0.5858,
+        0.6497, 0.6784, 0.6573, 0.6240, 0.5327, 0.6286, 0.6571, 0.6356, 0.6464,
+        0.7260, 0.6560, 0.7197, 0.6592, 0.5399, 0.6997, 0.7053, 0.6730, 0.6744,
+        0.6706, 0.6544, 0.6488, 0.6574, 0.6840, 0.6497, 0.6437, 0.6497, 0.6074,
+        ...
+        0.9586, 0.8711, 1.0062, 1.0872, 1.0390, 0.9171, 1.0789, 1.0924, 1.0542,
+        1.0841, 1.0924, 1.0629, 1.0592, 1.0067, 0.9779, 1.0629, 1.0838, 1.0303,
+        1.0009, 1.0919, 1.0905, 1.0870, 1.0996, 1.0899, 1.1094, 1.0445, 1.0719,
+        1.0924, 1.1031, 1.0571, 1.1013, 1.0989, 1.0748])
 ```
 
 ### Section 5
@@ -135,7 +139,7 @@ You can use built-in python modules as you wish, however you are not allowed to 
 Files to turn in:
 
 - `template.py`: This is your code
-- `plot_1_2_1.png`
+- `2_1.png`
 - `5_1.txt`
 - `5_a.png`, `5_b.png`, ... as needed
 
