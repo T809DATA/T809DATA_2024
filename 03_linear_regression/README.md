@@ -48,7 +48,7 @@ $$
 $$
 
 We control the shift of the basis function using the mean vector $\mu_k$, but we force all covariance matrices to be 
-identical and diagonal $\Sigma_k = \sigma^{2}\mathbf{I}$ for all $k$ so $var = \sigma^2$ is the parameter that controls the width 
+identical and diagonal $\Sigma_k = \sigma^{2}\mathbf{I}$ for all $k$ so `var` = $\sigma^2$ is the parameter that controls the width 
 of all the basis functions (in all directions).
 
 Create a function `mvn_basis(features, mu, var)` that applies the multivariate normal basis function on the set of features. 
