@@ -1,8 +1,15 @@
 # Linear Models for Regression
 
-So far we have tried to *classify* flowers from the Iris dataset. Classification tasks assume that we have a set of *features* and a set of *class labels* that we would like our models to learn to predict.
+In Assignment 2 we tried to *classify* two overlapping distributions we had assigned *classes*, 
+if you continued with the Independent section of [Assignment 2](02_classification/README.md#independent-section-optional) 
+you have also tried to *classify* flowers from the Iris dataset. 
+Classification tasks assume that we have a set of *features* and a set of *class labels* that we would like our models 
+to learn to predict.
 
-Regression tasks don't assume categorical labels. In regression tasks we again have some set of *features* but the value we want to predict isn't a label anymore but some value from a continuous domain. Therefore the the output domain of the model is continuous.
+Regression tasks don't assume categorical labels. 
+In regression tasks we again have some set of *features* but the value we want to predict isn't a label anymore 
+but some value from a continuous domain. 
+Therefor the output domain of the model is continuous.
 
 You can for example imagine the quadratic equation
 
@@ -12,11 +19,14 @@ $$
 
 An example of a regression task might be to predict what $a, b, c$ are given a feature set of multiple $(x, y)$ values.
 
-In this assignment we will be using a altered version of the Iris dataset were we have ditched the class label targets and replaced them with the last feature column (representing the pedal length of the flower). You can load this data with `tools.load_regression_iris`.
+In this assignment we will be using an altered version of the Iris dataset were we have ditched the class label targets 
+and replaced them with the last feature column (representing the pedal length of the flower). 
+You can load this data with `tools.load_regression_iris`.
 
 # Pytorch
 
-In this assignment we are going to use Pytorch instead of Numpy to handle arrays and matrices.
+From now on we are going to start relying on Pytorch to handle arrays and matrices as opposed to Numpy.
+Although Numpy will continue to be useful, we will take this opportunity to get familiar with the Pytorch library.
 Pytorch stores arrays and matrices in [Tensors](https://pytorch.org/tutorials/beginner/introyt/tensors_deeper_tutorial.html).
 In future assignments we will be using Tensors to create more complicated models including Neural Networks.
 
@@ -37,9 +47,12 @@ $$
     \phi_k(x) = \frac{1}{(2\pi)^{D/2}} \frac{1}{|\Sigma_k|^{1/2}} e^{-\frac{1}{2} (x-\mu_k)^T \Sigma_k^{-1} (x-\mu_k)}
 $$
 
-We control the shift of the basis function using the mean vector $\mu_k$, but we force all covariance matrices to be identical and diagonal $\Sigma_k = \sigma\mathbf{I}$ for all $k$ so $\sigma$ is the parameter that controls the width of all the basis functions (in all directions).
+We control the shift of the basis function using the mean vector $\mu_k$, but we force all covariance matrices to be 
+identical and diagonal $\Sigma_k = \sigma^{2}\mathbf{I}$ for all $k$ so $var = \sigma^2$ is the parameter that controls the width 
+of all the basis functions (in all directions).
 
-Create a function `mvn_basis(features, mu, sigma)` that applies the multivariate normal basis function on the set of features. You should use the `scipy.stats.multivariate_normal` object to create your multivariate gaussians.
+Create a function `mvn_basis(features, mu, var)` that applies the multivariate normal basis function on the set of features. 
+You should use the `scipy.stats.multivariate_normal` object to create your multivariate Gaussians.
 
 Example inputs and outputs:
 
@@ -49,16 +62,17 @@ X, t = load_regression_iris()
 N, D = X.shape
 ```
 
-We need to define how many basis functions we are going to use and determine the mean vectors that we are using. We also have to define the variance, `sigma`. We do this arbitrarily.
+We need to define how many basis functions we are going to use and determine the mean vectors that we are using. 
+We also have to define the variance, `var`. We do this arbitrarily.
 
 ```
-M, sigma = 10, 10
+M, var = 10, 10
 mu = torch.zeros((M, D))
 for i in range(D):
     mmin = torch.min(X[:, i])
     mmax = torch.max(X[:, i])
     mu[:, i] = torch.linspace(mmin, mmax, M)
-fi = mvn_basis(X, mu, sigma)
+fi = mvn_basis(X, mu, var)
 ```
 
 *Output*
@@ -74,7 +88,8 @@ fi: tensor([[0.0017, 0.0018, 0.0018,  ..., 0.0007, 0.0005, 0.0003],
 
 ### Section 2
 
-Plot the output of each basis function, using the same parameters as above, as a function of the features. You should plot all the outputs onto the same plot. Turn in your plot as `2_1.png`.
+Plot the output of each basis function, using the same parameters as above, as a function of the features. 
+You should plot all the outputs onto the same plot. Turn in your plot as `2_1.png`.
 
 A single basis function output is shown below.
 
@@ -87,7 +102,7 @@ Create a function `max_likelihood_linreg(fi, targets, lam)` that estimates the m
 
 Example inputs and outputs:
 ```
-fi = mvn_basis(X, mu, sigma) # same as before
+fi = mvn_basis(X, mu, var) # same as before
 lamda = 0.001
 wml = max_likelihood_linreg(fi, t, lamda)
 ```
@@ -98,13 +113,14 @@ wml: tensor([  4.2790,  17.5758,  34.9175,  54.4687,  73.4915,  88.9635,  98.360
 ```
 
 ### Section 4
-Finally, create a function `linear_model(features, mu, sigma, w)` that predicts targets given the weights from your `max_likelihood_linreg`, the basis functions, defined by `mu` and `sigma`, and the `features`.
+Finally, create a function `linear_model(features, mu, var, w)` that predicts targets given the weights 
+from your `max_likelihood_linreg`, the basis functions, defined by `mu` and `var`, and the `features`.
 
 Example inputs and outputs:
 
 ```
 wml = max_likelihood_linreg(fi, t, lamda) # as before
-prediction = linear_model(X, mu, sigma, wml)
+prediction = linear_model(X, mu, var, wml)
 ```
 *Output*:
 ```
@@ -134,7 +150,8 @@ You should edit `template.py` to include your own code.
  
 This is an individual project, you can of course help each other out but your code should be your own.
 
-You can use built-in python modules as you wish, however you are not allowed to install and import packages other than are already imported.
+You can use built-in python modules as you wish, however you are not allowed to install and import packages 
+other than are already imported.
 
 Files to turn in:
 
@@ -148,5 +165,5 @@ Submission that do not pass the first two tests in Gradescope will not be graded
 
 
 ### Independent section (optional)
-This is a completely open-ended independent section. You are free to test out the methods in the assignment on different datasets, change the models, change parameters, make visualizations, analyze the models, or anything you desire.
-
+This is a completely open-ended independent section. You are free to test out the methods in the assignment on 
+different datasets, change the models, change parameters, make visualizations, analyze the models, or anything you desire.
