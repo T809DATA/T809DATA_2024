@@ -9,6 +9,7 @@ The repository contains the following modules:
 * Assignment 1: [Sequential Estimation](01_sequential_estimation/README.md)
 * Assignment 2: [Classification](02_classification/README.md)
 * Assignment 3: [Linear Regression](03_linear_regression/README.md)
+* Assignment 4: [The Back-propagation Algorithm](04_backprop/README.md)
 
 
 We will add modules gradually throughout the course.
