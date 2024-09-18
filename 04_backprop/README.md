@@ -38,7 +38,8 @@ Example inputs and outputs:
 * `d_sigmoid(torch.Tensor([0.2]))` -> `tensor([0.2475])`
 
 ### Section 1.2 The Perceptron Function
-A perceptron takes in an array of inputs $X$ and an array of the corresponding weights $W$ and returns the weighted sum of $X$ and $W$, as well as the result from the activation function (i.e. the sigmoid) of this weighted sum. *(see Eq. 5.48 & 5.62 in Bishop)*.
+A perceptron takes in an array of inputs $X$ and an array of the corresponding weights $W$ and returns the weighted sum of $X$ and $W$, 
+as well as the result from the activation function (i.e. the sigmoid) of this weighted sum. *(see Eq. 6.10 & 6.11 in Bishop (Eq. 5.48 & 5.62 in old Bishop)*.
 
 Implement the function `perceptron(x, w)` that returns the weighted sum and the output of the activation function.
 
@@ -49,7 +50,10 @@ Example inputs and outputs:
 ### Section 1.3 Forward Propagation
 When we have the sigmoid and the perceptron function, we can start to implement the neural network.
 
-Implement a function `ffnn` which computes the output and hidden layer variables for a single hidden layer feed-forward neural network. If the number of inputs is $D$, the number of hidden layer neurons is $M$ and the number of output neurons is $K$, the matrices $W_1$ of size $[(D+1)\times M]$ and $W_2$ of size $[(M+1)\times K]$ represent the linear transform from the input layer and the hidden layer and from the hidden layer to the output layer respectively.
+Implement a function `ffnn` which computes the output and hidden layer variables for a single hidden layer feed-forward neural network. 
+If the number of inputs is $D$, the number of hidden layer neurons is $M$ and the number of output neurons is $K$, 
+the matrices $W_1$ of size $[(D+1)\times M]$ and $W_2$ of size $[(M+1)\times K]$ represent the linear transform from 
+the input layer and the hidden layer and from the hidden layer to the output layer respectively.
 
 Write a function `y, z0, z1, a1, a2 = ffnn(x, M, K, W1, W2)` where:
 
@@ -105,7 +109,8 @@ Create a function `y, dE1, dE2 = backprop(x, target_y, M, K, W1, W2)` where:
 * `y` is the output of the output layer (vector with 3 elements)
 * `dE1` and `dE2` are the gradient error matrices that contain $\frac{\partial E_n}{\partial w_{ji}}$ for the first and second layers.
 
-Assume sigmoid hidden and output activation functions and assume cross-entropy error function (for classification). Notice that $E_n(\mathbf{w})$ is defined as the error function for a single pattern $\mathbf{x}_n$. *The algorithm is described on page 244 in Bishop*.
+Assume sigmoid hidden and output activation functions and assume cross-entropy error function (for classification). 
+Notice that $E_n(\mathbf{w})$ is defined as the error function for a single pattern $\mathbf{x}_n$. *The algorithm is described on page 237 in Bishop (page 244 in old Bishop)*.
 
 The inner working of your `backprop` function should follow this order of actions:
 1. run `ffnn` on the input.
@@ -166,7 +171,7 @@ $$
 $$
 \text{NN}(x) = \begin{bmatrix}0.32\\0.03\\0.65\end{bmatrix}
 $$
- *From this we can directly make a prediction, `0.65` is highest so the model is most confident in that the input feature corresponds to the `blue` label*
+*From this we can directly make a prediction, `0.65` is highest so the model is most confident in that the input feature corresponds to the `blue` label*
 
 
 ## Section 2 - Training the Network
@@ -198,7 +203,7 @@ The inner working of your `train_nn` function should follow this order of action
 3. In each iteration we will collect the gradient error matrices for each data point. Start by initializing `dE1_total` and `dE2_total` as zero matrices with the same shape as `W1` and `W2` respectively.
 4. Run a loop over all the data points in `X_train`. In each iteration we call backprop to get the gradient error matrices and the output values.
 5. Once we have collected the error gradient matrices for all the data points, we adjust the weights in `W1` and `W2`, using `W1 = W1 - eta * dE1_total / N` where `N` is the number of data points in `X_train` (and similarly for `W2`).
-6. For the error estimation we'll use the cross-entropy error function, *(Eq. 4.90 in Bishop)*.
+6. For the error estimation we'll use the cross-entropy error function, *(Eq 5.74 in Bishop (Eq. 4.90 in old Bishop))*.
 7. When the outer loop finishes, we return from the function
 
 Example inputs and outputs:
@@ -275,6 +280,9 @@ The function should run through all the data points in `X_test` and use the `ffn
 ### Section 2.3
 
 Now train your network and test it on the Iris dataset. Use 80% (as usual) for training.
+At the beginning of your solution, before you load the data, use a seed that is unique to you: `torch.manual_seed(<your-seed>)`.
+This will ensure your results are unique. For reproducibility, make a note of your `seed` and submit it with your results.
+
 1. Calculate the accuracy
 2. Produce a confusion matrix for your test features and test predictions
 3. Plot the `E_total` as a function of iterations from your `train_nn` function.
