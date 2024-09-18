@@ -16,6 +16,8 @@ You will need the following requirements to finish this requirement.
 
 You can run `pip install -r requirements.txt` to install all the requirements.
 
+!!!Note: If you are having trouble installing pytorch (or CUDA related dependencies) with the requirement file see [*Start Locally*](https://pytorch.org/get-started/locally/) on the PyTorch website and install the packages manually. F.ex `pip install torch torchvision torchaudio` and `pip install matplotlib scikit-lear`
+
 ## Section 1
 
 ### Section 1.1 The Sigmoid function
