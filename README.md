@@ -10,6 +10,11 @@ The repository contains the following modules:
 * Assignment 2: [Classification](02_classification/README.md)
 * Assignment 3: [Linear Regression](03_linear_regression/README.md)
 * Assignment 4: [The Back-propagation Algorithm](04_backprop/README.md)
+* Assignment 5: [Neural Network Design](5_neural_network_design/README.md)
+* Assignment 6a: [The Kmeans Algorithm](06a_kmeans/README.md)
+* Assignment 6b: [Boosting](06b_boosting/README.md)
+
+
 
 
 We will add modules gradually throughout the course.
