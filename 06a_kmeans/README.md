@@ -1,5 +1,4 @@
 # K-means Clustering and Gaussian Mixture Models
-
 The exercise focuses on assigning categorical values using unsupervised learning. The two methods that we look at are *K-means clustering* and *Gaussian mixture models*. We will implement our own K-means algorithm but use the scikit-learning implementation of Gaussian mixture models.
 
 This will be applied to the Iris database and the results of the clustering is then compared to the target values.
@@ -7,28 +6,23 @@ This will be applied to the Iris database and the results of the clustering is t
 ## Section 1 - K-means Clustering
 The focus here is to implement the [K-means algorithm](https://en.wikipedia.org/wiki/K-means_clustering) and evaluate it's performance on the Iris dataset. (See Chapter 9.1 in Bishop).
 
-The algorithm aims to split $n$ samples $(x_1, x_2, ... x_n)$ into $k$ clusters where each sample belongs to the cluster which mean is closest to the sample. These means are referred to as *prototypes*  $(\mu_1, \mu_2, ... \mu_k)$
+The algorithm aims to split $N$ samples $(x_1, x_2, ... x_N)$ into $K$ clusters where each sample belongs to the cluster which mean is closest to the sample. These means are referred to as *prototypes*  $(\mu_1, \mu_2, ... \mu_K)$
 
 The K-means algorithm has the following steps:
-1. Initialize the *k* prototypes. Typically these are chosen at random from the set of samples.
+1. Initialize the *K* prototypes. Typically these are chosen at random from the set of samples.
 2. *E-step*:
-    * Calculate the *distance matrix* ($D$) of size $[n \times k]$. Element $D[i, j]$ is the euclidean distance between sample $i$ and prototype $j$.
-    * Determine $r_{nk}$ for each point $x_n$. We set $r_{nk}=1$ and $r_{nj}=0, j\neq k$ if we decided $x_n$ belongs to $k$. Typically we make this
+    * Calculate the *distance matrix* ($D$) of size $[N \times K]$. Element $D[i, j]$ is the euclidean distance between sample $i$ and prototype $j$.
+    * Determine $r_{nk}$ for each point $x_n$. We set $r_{nk}=1$ and $r_{nj}=0, j\neq k$ if we decide that $x_n$ belongs to $k$. Typically we make this
     determination by choosing the $\mu_k$ closest to $x_n$.
 3. We then calculate the value of $J$, our objective function:
-    $$
-        J  = \sum_{n=1}^N \sum_{k=1}^K r_{nk} ||x_n - \mu_k ||^2
-    $$
+    $$J  = \sum_{n=1}^N \sum_{k=1}^K r_{nk} \Vert x_n - \mu_k \Vert^2$$
    our goal is to find values for all $r_{nk}$ and all $\mu_k$ (our parameters) to minimize the value of $J$.
    Here, we will be using the average distance from the points to their cluster means as the objective value (let's call it $\hat{J}$).
-   $$
-   \hat{J} = \frac{1}{N}\sum_{n=1}^N \sum_{k=1}^K r_{nk} || x_n - \mu_k ||
-   $$
-4. *M-step* We now recompute the value of the prototypes:
-    $$
-        \mu_k = \frac{\sum_n r_{nk} x_n}{\sum_n r_{nk}}
-    $$
-5. Compare the current value of $\hat{J}$ to the previous value of $\hat{J}$. If the difference is above a certain threshold, we perform steps 2-4 again. Otherwise we continue up to a maximum number of iterations.
+   $${\hat{J} = \frac{1}{N}\sum_{n=1}^N \sum_{k=1}^K r_{nk} \Vert x_n - \mu_k \Vert}$$
+   
+5. *M-step* We now recompute the value of the prototypes:
+    $$\mu_k = \frac{\sum_n r_{nk} x_n}{\sum_n r_{nk}}$$
+6. Compare the current value of $\hat{J}$ to the previous value of $\hat{J}$. If the difference is above a certain threshold, we perform steps 2-4 again. Otherwise we continue up to a maximum number of iterations.
 
 We will now create the building blocks of the algorithm and then put them together.
 
